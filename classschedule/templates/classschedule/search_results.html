@@ -1,0 +1,9 @@
+{% extends 'classschedule/indexmain.html' %}
+{% block content6 %}
+<h1>Search Results</h1>
+   <ul class="list-group list-group-horizontal">
+  {% for student in object_list %}
+      <li class="list-group-item"><a href="{% url 'classschedule:Student_detail' student.id %}">{{ student.student_name }}</a></li>
+  {% endfor %}
+   </ul>
+{% endblock %}

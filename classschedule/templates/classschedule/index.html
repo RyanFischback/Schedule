@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="{% url 'classschedule:index' %}">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'classschedule:students_list' %}">Student List</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'classschedule:class_list' %}">Courses List</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'classschedule:class_master' %}">Classes Master Data</a></li>
+          <li class="nav-item"><a class="nav-link" href="{% url 'classschedule:chartresults' %}">Courses Chart</a></li>
+          <form class="form-inline" action="{% url 'classschedule:Search_results' %}" method="get">
+            <input name="q" type="text" placeholder="Search a student...">
+          </form>
+        </ul>
+    </div>
+</nav>
+
+<div id="content1">{% block content1 %} {% endblock %}</div>
+<div id="content2">{% block content2 %} {% endblock %}</div>
+<div id="content3">{% block content3 %} {% endblock %}</div>
+<div id="content4">{% block content4 %} {% endblock %}</div>
+<div id="content5">{% block content5 %} {% endblock %}</div>
+<div id="content6">{% block content6 %} {% endblock %}</div>
+<div id="content7">{% block content7 %} {% endblock %}</div>
+</body>
+</html>

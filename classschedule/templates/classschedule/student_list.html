@@ -1,0 +1,17 @@
+{% extends 'classschedule/indexmain.html' %}
+{% block content2 %}
+    <h1>Student List</h1>
+    <ul class="list-group list-group-horizontal">
+    {% for student in student_list %}
+        <li class="list-group-item"><a href="{% url 'classschedule:Student_detail' student.id %}">{{ student.student_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+{% block content9 %}
+    <h1>Student List</h1>
+    <ul class="list-group">
+    {% for student in student_list %}
+        <li class="list-group-item"><a href="{% url 'classschedule:Student_detail' student.id %}">{{ student.student_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'classschedule/indexmain.html' %}
+{% block content1 %}
+    <h1>Course List</h1>
+    <ul class="list-group list-group-horizontal">
+    {% for course in object_list.1 %}
+        <li class="list-group-item"><a href="{% url 'classschedule:Class_detail' course.id %}">{{ course.course_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+
+{% block content8 %}
+    <h1>Course List</h1>
+    <ul class="list-group">
+    {% for course in object_list.1 %}
+        <li class="list-group-item"><a href="{% url 'classschedule:Class_detail' course.id %}">{{ course.course_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endblock %}
+
+
+{% block content7 %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+<canvas id="myChart" width="400" height="100"></canvas>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for course in object_list.1 %} "{{ course.course_name }}", {% endfor %}],
+        datasets: [{
+            label: '',
+            data: [{% for student in object_list.0 %} {{ student.num_classes }}, {% endfor %}],
+            backgroundColor: [
+                'rgb(58,124,255)',
+                'rgb(255,119,248)',
+                'rgb(255,123,98)',
+                'rgb(90,255,209)',
+                'rgb(255,234,180)',
+                'rgb(42,255,28)',
+            ],
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock %}

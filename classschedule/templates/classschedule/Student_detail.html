@@ -1,0 +1,11 @@
+{% extends 'classschedule/indexmain.html' %}
+{% block content5 %}
+<h1>{{ students.student_name }}</h1>
+<h1>{{ students.student_address }}</h1>
+<h1>{{ students.student_phonenumber }}</h1>
+<table class="table table-bordered w-auto">
+<th>{{ students.student_name }}'s Course Name</th>
+<th>Course Time</th>
+{% for courses in students.enrolled_classes.all %}<tr><td>{{ courses }}</td><td>{% for time in courses.Time.all %}{{ time}},{{ " " }}{% endfor %}</td>{% endfor %}</tr>
+</table>
+{% endblock %}
